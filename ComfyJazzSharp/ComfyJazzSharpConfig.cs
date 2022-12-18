@@ -9,27 +9,27 @@ public sealed class ComfyJazzSharpConfig
     private string _instrument;
     private string _backgroundLoopPath;
     private double _backgroundLoopDuration;
-    private long _autoNoteDelay;
+    private int _autoNoteDelay;
     private double _autoNotesChance;
     private double _volume;
 
     public string SoundFolderPath
     {
-        get => string.IsNullOrWhiteSpace(this._soundFolderPath) ? Constants.SoundFolderPath : this._soundFolderPath;
+        get => string.IsNullOrWhiteSpace(_soundFolderPath) ? Constants.SoundFolderPath : _soundFolderPath;
         set
         {
-            ValidateString(nameof(this.SoundFolderPath), value);
-            this._soundFolderPath = value.Trim('/', '\\', ' ');
+            ValidateString(nameof(SoundFolderPath), value);
+            _soundFolderPath = value.Trim('/', '\\', ' ');
         }
     }
 
     public string Instrument
     {
-        get => string.IsNullOrWhiteSpace(this._instrument) ? Constants.Instrument : this._instrument;
+        get => string.IsNullOrWhiteSpace(_instrument) ? Constants.Instrument : _instrument;
         set
         {
-            ValidateString(nameof(this.Instrument), value);
-            this._instrument = value.Trim();
+            ValidateString(nameof(Instrument), value);
+            _instrument = value.Trim();
         }
     }
 
@@ -37,42 +37,42 @@ public sealed class ComfyJazzSharpConfig
 
     public string BackgroundLoopPath
     {
-        get => string.IsNullOrWhiteSpace(this._backgroundLoopPath) ? Constants.BackgroundLoopPath : this._backgroundLoopPath;
+        get => string.IsNullOrWhiteSpace(_backgroundLoopPath) ? Constants.BackgroundLoopPath : _backgroundLoopPath;
         set
         {
-            ValidateString(nameof(this.BackgroundLoopPath), value);
-            this._backgroundLoopPath = value.Trim('/', '\\', ' ');
+            ValidateString(nameof(BackgroundLoopPath), value);
+            _backgroundLoopPath = value.Trim('/', '\\', ' ');
         }
     }
 
-    // TODO: Could it be calculated instead? Would we want to?
+    // todo: Could it be calculated instead? Would we want to?
     public double BackgroundLoopDuration
     {
-        get => this._backgroundLoopDuration;
+        get => _backgroundLoopDuration;
         set
         {
-            ValidateNumber(nameof(this.BackgroundLoopDuration), value);
-            this._backgroundLoopDuration = value;
+            ValidateNumber(nameof(BackgroundLoopDuration), value);
+            _backgroundLoopDuration = value;
         }
     }
 
-    public long AutoNoteDelay
+    public int AutoNoteDelay
     {
-        get => this._autoNoteDelay;
+        get => _autoNoteDelay;
         set
         {
-            ValidateNumber(nameof(this.AutoNoteDelay), value);
-            this._autoNoteDelay = value;
+            ValidateNumber(nameof(AutoNoteDelay), value);
+            _autoNoteDelay = value;
         }
     }
 
     public double AutoNotesChance
     {
-        get => this._autoNotesChance;
+        get => _autoNotesChance;
         set
         {
-            ValidatePercentage(nameof(this.AutoNotesChance), value);
-            this._autoNotesChance = value;
+            ValidatePercentage(nameof(AutoNotesChance), value);
+            _autoNotesChance = value;
         }
     }
 
@@ -80,11 +80,11 @@ public sealed class ComfyJazzSharpConfig
 
     public double Volume
     {
-        get => this._volume;
+        get => _volume;
         set
         {
-            ValidatePercentage(nameof(this.Volume), value);
-            this._volume = value;
+            ValidatePercentage(nameof(Volume), value);
+            _volume = value;
         }
     }
 
@@ -106,40 +106,40 @@ public sealed class ComfyJazzSharpConfig
         bool? playBackgroundLoop = null,
         string? backgroundLoopPath = null,
         double? backgroundLoopDuration = null,
-        long? autoNoteDelay = null,
+        int? autoNoteDelay = null,
         double? autoNotesChance = null,
         bool? playAutoNotes = null,
         int? volume = null)
     {
         ValidateInputs(soundFolderPath, instrument, backgroundLoopPath, backgroundLoopDuration, autoNoteDelay, autoNotesChance, volume);
 
-        this._soundFolderPath = string.IsNullOrWhiteSpace(soundFolderPath) ? Constants.SoundFolderPath : soundFolderPath;
-        this._instrument = string.IsNullOrWhiteSpace(instrument) ? Constants.Instrument : instrument;
-        this.PlayBackgroundLoop = playBackgroundLoop ?? Constants.PlayBackgroundLoop;
-        this._backgroundLoopPath = string.IsNullOrWhiteSpace(backgroundLoopPath) ? Constants.BackgroundLoopPath : backgroundLoopPath;
-        this._backgroundLoopDuration = backgroundLoopDuration ?? Constants.BackgroundLoopDuration;
-        this._autoNoteDelay = autoNoteDelay ?? Constants.AutoNoteDelay;
-        this._autoNotesChance = autoNotesChance ?? Constants.AutoNotesChance;
-        this.PlayAutoNotes = playAutoNotes ?? Constants.PlayAutoNotes;
-        this._volume = volume ?? Constants.Volume;
+        _soundFolderPath = string.IsNullOrWhiteSpace(soundFolderPath) ? Constants.SoundFolderPath : soundFolderPath;
+        _instrument = string.IsNullOrWhiteSpace(instrument) ? Constants.Instrument : instrument;
+        PlayBackgroundLoop = playBackgroundLoop ?? Constants.PlayBackgroundLoop;
+        _backgroundLoopPath = string.IsNullOrWhiteSpace(backgroundLoopPath) ? Constants.BackgroundLoopPath : backgroundLoopPath;
+        _backgroundLoopDuration = backgroundLoopDuration ?? Constants.BackgroundLoopDuration;
+        _autoNoteDelay = autoNoteDelay ?? Constants.AutoNoteDelay;
+        _autoNotesChance = autoNotesChance ?? Constants.AutoNotesChance;
+        PlayAutoNotes = playAutoNotes ?? Constants.PlayAutoNotes;
+        _volume = volume ?? Constants.Volume;
     }
 
     private void ValidateInputs(string? soundFolderPath, string? instrument, string? backgroundLoopPath, double? backgroundLoopDuration, long? autoNoteDelay, double? autoNotesChance, int? volume)
     {
         if (soundFolderPath != null)
-            ValidateString(nameof(this.SoundFolderPath), soundFolderPath);
+            ValidateString(nameof(SoundFolderPath), soundFolderPath);
         if (instrument != null)
-            ValidateString(nameof(this.Instrument), instrument);
+            ValidateString(nameof(Instrument), instrument);
         if (backgroundLoopPath != null)
-            ValidateString(nameof(this.BackgroundLoopPath), backgroundLoopPath);
+            ValidateString(nameof(BackgroundLoopPath), backgroundLoopPath);
         if (backgroundLoopDuration != null)
-            ValidateNumber(nameof(this.BackgroundLoopDuration), backgroundLoopDuration.Value);
+            ValidateNumber(nameof(BackgroundLoopDuration), backgroundLoopDuration.Value);
         if (autoNoteDelay != null)
-            ValidateNumber(nameof(this.AutoNoteDelay), autoNoteDelay.Value);
+            ValidateNumber(nameof(AutoNoteDelay), autoNoteDelay.Value);
         if (autoNotesChance != null)
-            ValidatePercentage(nameof(this.AutoNotesChance), autoNotesChance.Value);
+            ValidatePercentage(nameof(AutoNotesChance), autoNotesChance.Value);
         if (volume != null)
-            ValidatePercentage(nameof(this.Volume), volume.Value);
+            ValidatePercentage(nameof(Volume), volume.Value);
     }
 
     private static void ValidateString(string paramName, string value)

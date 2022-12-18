@@ -10,7 +10,7 @@ public static class Constants
     public const bool PlayBackgroundLoop = true;
     public const string BackgroundLoopPath = "jazz_loop.ogg";
     public const double BackgroundLoopDuration = 27.428;
-    public const long AutoNoteDelay = 300;
+    public const int AutoNoteDelay = 300;
     public const double AutoNotesChance = 0.2;
     public const bool PlayAutoNotes = true;
     public const double Volume = 1.0;
@@ -18,7 +18,7 @@ public static class Constants
     // Properties
     public const int MaxNotesPerPattern = 30;
 
-    public static ScaleProgression[] ScaleProgressions =
+    public static readonly ScaleProgression[] ScaleProgressions =
     {
         new()
         {
@@ -94,7 +94,7 @@ public static class Constants
         },
     };
 
-    public static Dictionary<Scale, int[]> Scales = new()
+    public static readonly Dictionary<Scale, int[]> Scales = new()
     {
         { Scale.Diatonic, new[] { 0, -1, 0, -1, 0, 0, -1, 0, -1, 0, -1, 0 } },
         { Scale.Dorian, new[] { 0, 1, 0, 0, -1, 0, 1, 0, 1, 0, 0, -1 } },
@@ -114,7 +114,7 @@ public static class Constants
         { Scale.Custom2, new[] { -1, 0, 0, -1, 0, 0, 1, 0, 0, -1, 0, 0 } },
     };
 
-    public static List<int[]> Patterns = new()
+    public static readonly List<int[]> Patterns = new()
     {
         new[] { 71, 72, 69, 71, 67, 69, 64, 67, 62, 64, 62, 60, 59, 60, 62, 64, 65, 67, 69, 71, 67, 64, 62, 60, 59, 60, 57, 59, 55 },
         new[] { 83, 88, 86, 81, 79, 83, 81, 76, 74, 79, 76, 72, 71, 72, 69, 67 },
@@ -127,11 +127,11 @@ public static class Constants
         new[] { 55, 59, 60, 62, 67, 71, 72, 76, 79, 83, 86, 88, 93, 91, 88, 84, 81, 79, 77, 76, 74, 72, 71 },
     };
 
-    public static Note[] Notes =
+    public static readonly Note[] Notes =
     {
         new()
         {
-            Name = "note_96",
+            Name = "note_96", // C7
             NoteMetadata = new NoteMetadata
             {
                 Root = 96,
@@ -141,7 +141,7 @@ public static class Constants
         },
         new()
         {
-            Name = "note_93",
+            Name = "note_93", // A6
             NoteMetadata = new NoteMetadata
             {
                 Root = 93,
@@ -151,7 +151,7 @@ public static class Constants
         },
         new()
         {
-            Name = "note_90",
+            Name = "note_90", // F#6
             NoteMetadata = new NoteMetadata
             {
                 Root = 90,
@@ -161,7 +161,7 @@ public static class Constants
         },
         new()
         {
-            Name = "note_87",
+            Name = "note_87", // D#6
             NoteMetadata = new NoteMetadata
             {
                 Root = 87,
@@ -171,7 +171,7 @@ public static class Constants
         },
         new()
         {
-            Name = "note_84",
+            Name = "note_84", // C6
             NoteMetadata = new NoteMetadata
             {
                 Root = 84,
@@ -181,7 +181,7 @@ public static class Constants
         },
         new()
         {
-            Name = "note_81",
+            Name = "note_81", // A5
             NoteMetadata = new NoteMetadata
             {
                 Root = 81,
@@ -191,7 +191,7 @@ public static class Constants
         },
         new()
         {
-            Name = "note_77",
+            Name = "note_77", // F#5
             NoteMetadata = new NoteMetadata
             {
                 Root = 78,
@@ -201,7 +201,7 @@ public static class Constants
         },
         new()
         {
-            Name = "note_74",
+            Name = "note_74", // D#5
             NoteMetadata = new NoteMetadata
             {
                 Root = 75,
@@ -211,7 +211,7 @@ public static class Constants
         },
         new()
         {
-            Name = "note_71",
+            Name = "note_71", // C5
             NoteMetadata = new NoteMetadata
             {
                 Root = 72,
@@ -221,7 +221,7 @@ public static class Constants
         },
         new()
         {
-            Name = "note_69",
+            Name = "note_69", // A4
             NoteMetadata = new NoteMetadata
             {
                 Root = 69,
@@ -231,7 +231,7 @@ public static class Constants
         },
         new()
         {
-            Name = "note_66",
+            Name = "note_66", // F#4
             NoteMetadata = new NoteMetadata
             {
                 Root = 66,
@@ -241,7 +241,7 @@ public static class Constants
         },
         new()
         {
-            Name = "note_63",
+            Name = "note_63", // D#4
             NoteMetadata = new NoteMetadata
             {
                 Root = 63,
@@ -251,7 +251,7 @@ public static class Constants
         },
         new()
         {
-            Name = "note_60",
+            Name = "note_60", // C4
             NoteMetadata = new NoteMetadata
             {
                 Root = 60,
@@ -261,7 +261,7 @@ public static class Constants
         },
         new()
         {
-            Name = "note_57",
+            Name = "note_57", // A3
             NoteMetadata = new NoteMetadata
             {
                 Root = 57,
@@ -271,7 +271,7 @@ public static class Constants
         },
         new()
         {
-            Name = "note_54",
+            Name = "note_54", // F#3
             NoteMetadata = new NoteMetadata
             {
                 Root = 54,
@@ -281,7 +281,7 @@ public static class Constants
         },
         new()
         {
-            Name = "note_51",
+            Name = "note_51", // D#3
             NoteMetadata = new NoteMetadata
             {
                 Root = 51,
@@ -291,7 +291,7 @@ public static class Constants
         },
         new()
         {
-            Name = "note_48",
+            Name = "note_48", // C3
             NoteMetadata = new NoteMetadata
             {
                 Root = 48,

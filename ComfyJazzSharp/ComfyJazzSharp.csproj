@@ -6,4 +6,8 @@
         <Nullable>enable</Nullable>
     </PropertyGroup>
 
+    <ItemGroup>
+      <PackageReference Include="SoundTouch.Net.NAudioSupport" Version="2.3.2" />
+    </ItemGroup>
+
 </Project>
